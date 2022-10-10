@@ -6,8 +6,6 @@ import uuid
 import models
 from datetime import datetime
 
-from symbol import pass_stmt
-
 
 class BaseModel():
     """The class of base model"""
