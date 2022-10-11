@@ -35,7 +35,7 @@ class BaseModel:
         self.updated_at = datetime.now()
         models.storage.save()
 
-    def to_sict(self):
+    def to_dict(self):
         """returns a dictionary containing all keys/values of __dict__
         of the instance"""
         instance_dict = {"__class__": self.__class__.__name__}
