@@ -1,1 +1,48 @@
 #!/usr/bin/python3
+"""
+recreate a BaseModel from another one by using a dictionary representation
+"""
+from xml.etree.ElementTree import TreeBuilder
+from models.base_model import BaseModel
+from models.review import Review
+from models.amenity import Amenity
+from models.city import City
+from models.place import Place
+from models.user import User
+from models.state import State
+import json
+import os
+
+
+class FileStorage:
+    """
+    The file storage class (json store)
+    """
+    __file_path = 'file.json'
+    __objects = {}
+
+    def all(self):
+        """returns the dictionary __objects"""
+        return FileStorage.__objects
+
+    def new(self, obj):
+        """sets in __objects the obj with key"""
+        if obj:
+            FileStorage.__objects[f"{obj.__class__.__name__}.{obj.id}"] = obj
+
+    def save(self):
+        """serializes __objects to the JSON file """
+        new_dict = {}
+        for keys, values in FileStorage.__objects.items():
+            new_dict[keys] = values.to_dict()
+
+        with open(FileStorage.__file_path, 'w') as file:
+            json.dump(new_dict, file)
+
+    def reload(self):
+        """deserializes the JSON file to __objects"""
+        if os.path.exists(FileStorage.__file_path) is True:
+            with open(FileStorage.__file_path, 'r') as file:
+                new_object_dict = json.load(file)
+            for keys, val in new_object_dict.items():
+                FileStorage.__objects[keys] = eval(val['__class__'])(**val)
