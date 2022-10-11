@@ -6,7 +6,7 @@ import email
 from models.base_model import BaseModel
 
 
-class User():
+class User(BaseModel):
     """define a class user"""
     email = ""
     password = ""

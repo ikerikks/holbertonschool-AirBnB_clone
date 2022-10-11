@@ -5,7 +5,7 @@ Define places
 from models.base_model import BaseModel
 
 
-class Place():
+class Place(BaseModel):
     """define place class"""
     city_id = ""
     user_id = ""

@@ -7,7 +7,7 @@ import models
 from datetime import datetime
 
 
-class BaseModel():
+class BaseModel:
     """The class of base model"""
 
     def __init__(self, *args, **kwargs):
@@ -51,5 +51,4 @@ class BaseModel():
                     new_dict[key] = values
 
         new_dict['__class__'] = self.__class__.__name__
-
         return new_dict

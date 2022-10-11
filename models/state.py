@@ -5,6 +5,6 @@ Define a state
 from models.base_model import BaseModel
 
 
-class State():
+class State(BaseModel):
     """Define a class state"""
     name = ""
