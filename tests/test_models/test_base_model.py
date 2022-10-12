@@ -24,7 +24,7 @@ class test_basemodel(unittest.TestCase):
     def tearDown(self):
         try:
             os.remove('file.json')
-        except(Exception):
+        except (Exception):
             pass
 
     def test_default(self):
@@ -63,10 +63,25 @@ class test_basemodel(unittest.TestCase):
                          i.__dict__))
 
     def test_to_dict(self):
-        """ """
-        i = self.value()
-        n = i.to_dict()
-        self.assertEqual(i.to_dict(), n)
+        """
+        Tests that to_dict:
+            - returns a dictionary
+            - that contains all keys/values of __dict__
+            - contains __class__ and that this __class__ is the class name
+        """
+        base = BaseModel()
+
+        "Returns a dictionary"
+        returned_dict = base.to_dict()
+        self.assertIsInstance(returned_dict, dict)
+
+        "Dictionary contains all keys/values of __dict__"
+        default_dict = base.__dict__
+        self.assertTrue(default_dict.items() <= returned_dict.items())
+
+        "Dictionary contains __class__, which is the class name"
+        self.assertTrue("__class__" in returned_dict)
+        self.assertEqual(returned_dict["__class__"], type(base).__name__)
 
     def test_kwargs_none(self):
         """ """
@@ -90,5 +105,6 @@ class test_basemodel(unittest.TestCase):
         new = self.value()
         self.assertEqual(type(new.created_at), datetime.datetime)
 
-if __name__  == '__main__':
+
+if __name__ == '__main__':
     unittest.main()
