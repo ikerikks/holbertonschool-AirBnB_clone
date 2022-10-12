@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """ unit tests for BaseModel class """
-from base.base_model  import BaseModel
+from models.base_model import BaseModel
 import unittest
 import datetime
 from uuid import UUID
@@ -90,10 +90,5 @@ class test_basemodel(unittest.TestCase):
         new = self.value()
         self.assertEqual(type(new.created_at), datetime.datetime)
 
-    def test_updated_at(self):
-        """ """
-        new = self.value()
-        self.assertEqual(type(new.updated_at), datetime.datetime)
-        n = new.to_dict()
-        new = BaseModel(**n)
-        self.assertLessEqual(new.created_at, new.updated_at)
+if __name__  == '__main__':
+    unittest.main()
