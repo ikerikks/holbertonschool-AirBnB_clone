@@ -62,7 +62,7 @@ class test_basemodel(unittest.TestCase):
         self.assertEqual(str(i), '[{}] ({}) {}'.format(self.name, i.id,
                          i.__dict__))
 
-    def test_todict(self):
+    def test_to_dict(self):
         """ """
         i = self.value()
         n = i.to_dict()
