@@ -17,36 +17,6 @@ class test_basemodel(unittest.TestCase):
         self.name = 'BaseModel'
         self.value = BaseModel
 
-    def setUp(self):
-        """ """
-        pass
-
-    def tearDown(self):
-        try:
-            os.remove('file.json')
-        except (Exception):
-            pass
-
-    def test_default(self):
-        """ """
-        i = self.value()
-        self.assertEqual(type(i), self.value)
-
-    def test_kwargs(self):
-        """ """
-        i = self.value()
-        copy = i.to_dict()
-        new = BaseModel(**copy)
-        self.assertFalse(new is i)
-
-    def test_kwargs_int(self):
-        """ """
-        i = self.value()
-        copy = i.to_dict()
-        copy.update({1: 2})
-        with self.assertRaises(TypeError):
-            new = BaseModel(**copy)
-
     def test_save(self):
         """ Testing save """
         i = self.value()
@@ -78,18 +48,6 @@ class test_basemodel(unittest.TestCase):
         "Dictionary contains __class__, which is the class name"
         self.assertTrue("__class__" in returned_dict)
         self.assertEqual(returned_dict["__class__"], type(base).__name__)
-
-    def test_kwargs_none(self):
-        """ """
-        n = {None: None}
-        with self.assertRaises(TypeError):
-            new = self.value(**n)
-
-    def test_kwargs_one(self):
-        """ """
-        n = {'Name': 'test'}
-        new = self.value(**n)
-        self.assertRaises(KeyError)
 
     def test_id(self):
         """ """
