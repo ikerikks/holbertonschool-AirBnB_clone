@@ -2,23 +2,25 @@
 import unittest
 from models.base_model import BaseModel
 from models.amenity import Amenity
+
+
 class TestAmenity(unittest.TestCase):
     """ unit tests for amenity"""
-    def test_instance(self):
-        "Test instance"
-        hello = Amenity()
-        self.assertIsInstance(hello, Amenity)
+    def test_class(self):
+        testamenity = Amenity()
+        self.assertEqual(testamenity.__class__.__name__, "Amenity")
 
-    def test_state_name(self):
-        "Test state name"
-        hello = Amenity()
-        self.assertEqual("", hello.name)
+    def test_attributes_Class(self):
+        """Test attributes Class """
+        my_amenity = Amenity()
+        my_amenity.name = "Hello-Holberton"
+        self.assertEqual(my_amenity.name, 'Hello-Holberton')
 
-    def test_id(self):
-        "Test id"
-        hello = Amenity()
-        self.assertEqual(str, type(hello.id))
+    def test_subclass(self):
+        testamenity = Amenity()
+        self.assertTrue(issubclass(testamenity.__class__, BaseModel))
 
-if __name__ == '__main__':
-    unittest.main()
-    
+    def test_Amenity_name(self):
+        """ assertequal function"""
+        a = Amenity()
+        self.assertEqual("", a.name)
