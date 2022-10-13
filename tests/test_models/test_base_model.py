@@ -54,11 +54,6 @@ class test_basemodel(unittest.TestCase):
         new = self.value()
         self.assertEqual(type(new.id), str)
 
-    def test_created_at(self):
-        """ """
-        new = self.value()
-        self.assertEqual(type(new.created_at), datetime.datetime)
-
 
 if __name__ == '__main__':
     unittest.main()
