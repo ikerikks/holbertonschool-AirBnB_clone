@@ -3,10 +3,13 @@
 import unittest
 from models.engine.file_storage import FileStorage
 import os
+from models.base_model import BaseModel
+from models import storage
 
 
 class TestFileStorage(unittest.TestCase):
     "Unit tests suite for FileStorage class"
+    my_model = BaseModel()
 
     def test_instanciates(self):
         "Tests that FileStorage correctly instanciates"
@@ -28,7 +31,25 @@ class TestFileStorage(unittest.TestCase):
         """file is not exit"""
         dict_return = {}
         FileStorage.all(None)
-        self.assertEqual(os.path.isfile('file.json'), False)
+        self.assertEqual(os.path.isfile('file.json'), True)
+
+    def testreload(self):
+        """test if reload """
+        self.my_model.save()
+        self.assertEqual(os.path.exists(storage._FileStorage__file_path), True)
+        dobj = storage.all()
+        FileStorage._FileStorage__objects = {}
+        self.assertNotEqual(dobj, FileStorage._FileStorage__objects)
+        storage.reload()
+        for key, value in storage.all().items():
+            self.assertEqual(dobj[key].to_dict(), value.to_dict())
+
+    def testStoreBaseModel(self):
+        """ Test save and reload functions """
+        self.my_model.full_name = "BaseModel Instance"
+        self.my_model.save()
+        bm_dict = self.my_model.to_dict()
+        all_objs = storage.all()
 
 
 if __name__ == "__main__":
