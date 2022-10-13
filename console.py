@@ -92,6 +92,98 @@ class HBNBCommand(cmd.Cmd):
             else:
                 print(dict_all_objs[string])
 
+    def do_destroy(self, arg):
+        """Deletes an instance based on the class name and id"""
+        list_arg = arg.split(" ")
+
+        if len(arg) == 0:
+            print("** class name missing **")
+            return
+
+        elif list_arg[0] not in HBNBCommand.list_class:
+            print("** class doesn't exist **")
+            return
+
+        elif len(list_arg) < 2:
+            print("** instance id missing **")
+            return
+
+        else:
+            dict_all_objs = storage.all()
+            string = f'{list_arg[0]}.{list_arg[1]}'
+
+            if string not in dict_all_objs.keys():
+                print("** no instance found **")
+
+            else:
+                del (dict_all_objs[string])
+                storage.save()
+
+    def do_all(self, arg):
+        """Prints all string representation of all instances
+        based or not on the class name"""
+        dict_all_objs = storage.all()
+        list_objs = []
+
+        if len(arg) == 0:
+            for key, vals in dict_all_objs.items():
+                list_objs.append(str(vals))
+            print(list_objs)
+
+        elif arg in HBNBCommand.list_class:
+            for keys, vals in dict_all_objs.items():
+                if vals.__class__.__name__ == arg:
+                    list_objs.append(str(vals))
+            print(list_objs)
+
+        else:
+            print("** class doesn't exist **")
+
+    def do_update(self, arg):
+        """Updates an instance based on the class name and id
+        by adding or updating attribute"""
+        list_arg = arg.split(" ")
+
+        if len(arg) == 0:
+            print("** class name missing **")
+
+        elif list_arg[0] not in HBNBCommand.list_class:
+            print("** class doesn't exist **")
+            return
+
+        elif len(list_arg) == 1:
+            print("** instance id missing **")
+            return
+
+        else:
+            dict_all_objs = storage.all()
+            string = f'{list_arg[0]}.{list_arg[1]}'
+
+            if string not in dict_all_objs.keys():
+                print("** no instance found **")
+
+            elif len(list_arg) == 2:
+                print("** attribute name missing **")
+                return
+
+            elif len(list_arg) == 3:
+                print("** value missing **")
+                return
+
+            else:
+                setattr(dict_all_objs[string], list_arg[2], list_arg[3])
+                storage.save()
+
+    def do_count(self, arg):
+        """Count the number of instances of a class"""
+        count = 0
+        list_arg = arg.split(" ")
+        dict_all_objs = storage.all()
+        for v in dict_all_objs.values():
+            if v.__class__.__name__ == list_arg[0]:
+                count += 1
+        print(count)
+
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
