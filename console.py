@@ -127,7 +127,7 @@ class HBNBCommand(cmd.Cmd):
         else:
             all_objs = storage.all()
             list_instances = []
-            for value in all_objs.items():
+            for key, value in all_objs.items():
                 ob_name = value.__class__.__name__
                 if ob_name == args[0]:
                     list_instances += [value.__str__()]
