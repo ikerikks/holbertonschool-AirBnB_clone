@@ -28,7 +28,7 @@ class TestFileStorage(unittest.TestCase):
         """file is not exit"""
         dict_return = {}
         FileStorage.all(None)
-        self.assertEqual(os.path.isfile('file.json'), True)
+        self.assertEqual(os.path.isfile('file.json'), False)
 
 
 if __name__ == "__main__":
