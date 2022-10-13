@@ -130,7 +130,7 @@ class HBNBCommand(cmd.Cmd):
             for key, value in all_objs.items():
                 ob_name = value.__class__.__name__
                 if ob_name == args[0]:
-                    list_instances += [value.__str__()]
+                    list_instances += [key.__str__()]
             print(list_instances)
 
     def do_update(self, arg):
