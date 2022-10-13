@@ -3,6 +3,7 @@
 import cmd
 import json
 import os
+import models
 from models.base_model import BaseModel
 from models import storage
 from models.amenity import Amenity
@@ -47,10 +48,6 @@ class HBNBCommand(cmd.Cmd):
     def emptyline(self):
         """Nothing to do with empty line"""
         pass
-
-    def help_help(self):
-        """Print help command description"""
-        print("Provides description of a given command")
 
     def do_create(self, arg):
         """Create a new instance"""
