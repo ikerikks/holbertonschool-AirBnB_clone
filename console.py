@@ -35,6 +35,23 @@ class HBNBCommand(cmd.Cmd):
 
         return arg
 
+    def do_quit(self, arg):
+        """Method that quits command of program"""
+        quit()
+
+    def do_EOF(self, arg):
+        """Method that quit program with CTRL-D"""
+        print()
+        quit()
+
+    def emptyline(self):
+        """Nothing to do with empty line"""
+        pass
+
+    def help_help(self):
+        """Print help command description"""
+        print("Provides description of a given command")
+
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
