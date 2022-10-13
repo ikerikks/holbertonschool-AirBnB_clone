@@ -52,6 +52,19 @@ class HBNBCommand(cmd.Cmd):
         """Print help command description"""
         print("Provides description of a given command")
 
+    def do_create(self, arg):
+        """Create a new instance"""
+        if len(arg) == 0:
+            print("** class name missing **")
+
+        elif arg not in HBNBCommand.list_class:
+            print("** class doesn't exist **")
+
+        else:
+            new_instance = eval(arg)()
+            new_instance.save()
+            print(new_instance.id)
+
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
