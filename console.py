@@ -34,3 +34,7 @@ class HBNBCommand(cmd.Cmd):
                 arg = my_fnc[0] + ' ' + my_cls[0] + ' ' + prm[0]
 
         return arg
+
+
+if __name__ == '__main__':
+    HBNBCommand().cmdloop()
