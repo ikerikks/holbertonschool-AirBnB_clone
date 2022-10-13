@@ -75,10 +75,6 @@ class test_basemodel(unittest.TestCase):
         returned_dict = base.to_dict()
         self.assertIsInstance(returned_dict, dict)
 
-        "Dictionary contains all keys/values of __dict__"
-        default_dict = base.__dict__
-        self.assertTrue(default_dict.items() <= returned_dict.items())
-
         "Dictionary contains __class__, which is the class name"
         self.assertTrue("__class__" in returned_dict)
         self.assertEqual(returned_dict["__class__"], type(base).__name__)
