@@ -90,6 +90,8 @@ class HBNBCommand(cmd.Cmd):
             if "{}.{}".format(token_str[0], token_str[1]) \
                in obj_dictionary.keys():
                 del obj_dictionary[token_str[0] + "." + token_str[1]]
+            else:
+                print("** no instance found **")
 
     def do_all(self, args):
         """
