@@ -11,7 +11,7 @@
 - Create the first abstracted storage engine of the project: File storage.
 - And to finish create the unittest to validate all the classes and storage processes
 
-![image](https://holbertonintranet.s3.amazonaws.com/uploads/medias/2018/6/815046647d23428a14ca.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARDDGGGOU5BHMTQX4%2F20221014%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20221014T111128Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=e56c12073d31d047b3920cad50a87a128304ddb8dffefb0baf567f1735f40038)
+<img src="https://raw.githubusercontent.com/ChongLeangUENG/holbertonschool-AirBnB_clone/main/images/0.png">
 
 ## Definition
 First lets have some few definitions to help understand the project :
