@@ -1,15 +1,19 @@
-## AirBnB_clone
+#
 
-# Introduction
+![Image](https://holbertonintranet.s3.amazonaws.com/uploads/medias/2018/6/65f4a1dd9c51265f49d0.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARDDGGGOU5BHMTQX4%2F20221014%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20221014T115128Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=5957927d8ad97e19130e53553e9600b97399e0095f1b2b2868bf56dcd7de800f)
 
-# Creation Of The Console
+## Introduction
+
+## Creation Of The Console
 - The first step is in python. We will begin with the implementation of the parent class called BaseModel.
 - This class do the initialization, serialization and deserialization of the future instances : Instance <-> Dictionary <-> JSON string <-> file
 - During this project, we created some classes that inherit from BaseModel such as : User, State, City, Place, review, state, amenity...
 - Create the first abstracted storage engine of the project: File storage.
 - And to finish create the unittest to validate all the classes and storage processes
+
 ![image](https://holbertonintranet.s3.amazonaws.com/uploads/medias/2018/6/815046647d23428a14ca.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARDDGGGOU5BHMTQX4%2F20221014%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20221014T111128Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=e56c12073d31d047b3920cad50a87a128304ddb8dffefb0baf567f1735f40038)
-# Definition
+
+## Definition
 First lets have some few definitions to help understand the project :
 
 - What is a Python package ?
@@ -33,8 +37,9 @@ Kwargs allow you to pass keyword arguments to a function. They are used when you
 - How to handle named arguments in a function ?
 Keyword arguments (or named arguments) are values that, when passed into a function, are identifiable by specific parameter names. A keyword argument is preceded by a parameter and the assignment operator = . Keyword arguments can be likened to dictionaries in that they map a value to a keyword.
 
-# Use the console
+## Use the console
 The (hbnb) Airbnb Clone can be run both in interactive and non-interactive mode. To run the console in non-interactive mode, you can use the following command :
+
 '''sh
 $ echo "help" | ./console.py
 (hbnb)
@@ -55,9 +60,11 @@ Documented commands (type help <topic>):
 EOF  help  quit
 (hbnb) 
 $
+'''
 
 You can use the interactive mode with the following command :
 
+'''sh
 $ ./console.py
 (hbnb) help
 
@@ -70,7 +77,7 @@ EOF  help  quit
 (hbnb) quit
 $
 '''
-# Main Commands
+## Main Commands
 
 | COMMAND after the (hbnb) | DESCRIPTION |
 | quit |	To quit the console |
@@ -83,7 +90,7 @@ $
 | update + class + id + attribute name + "attribute value" | To create or update the attribute of a class |
 | count + class	To count | the number of instance by class |
 
-# BaseModel
+## BaseModel
 The BaseModel class is the parent of all the classes :
 
 - The init method defines the common attributes for all the class that inrherite from that one. We call that the constructor method.
@@ -94,7 +101,7 @@ The BaseModel class is the parent of all the classes :
 
 - The to_dict method returns a dictionary containing all the keys and values of the instance.
 
-# Other classes
+## Other classes
 All the classes listed bellow inherits from BaseModel :
 
 | class | Attributes | Description |
@@ -105,7 +112,7 @@ All the classes listed bellow inherits from BaseModel :
 | Review | place_id + user_id + text | This class retrieve a review of the future place with information of the user that post the review |
 | Amenity | name | This class retrieve information about the future amenity |
 
-# Filestorage
+## Filestorage
 - This file is composed of methods that are used by the console :
 
 - The all method display the dictionary view of objects.
@@ -162,7 +169,7 @@ $ method default switch by
 (hbnb) count User
 '''
 
-# Python Unit Tests
+## Python Unit Tests
 We have done some tests for our classes and methods. Tests are made to make sure our code display the result and the outputs expected.
 
 The command to display the results of the tests in interactive mode is :
