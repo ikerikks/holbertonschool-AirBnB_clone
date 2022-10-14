@@ -139,11 +139,13 @@ The command do_show is to show a string representation of an instance. This mean
 '''sh
 Usage: show <class name> <id> OR <class name>.show(<id>)
 '''
+
 The command do_destroy works on the same way as "show" but the objective is to remove an instance.
 
 '''sh
 Usage: destroy <class name> OR <class name>.destroy(<id>)
 '''
+
 The command do_all displays in the prompt the string representation of all the instance saved.
 
 '''sh
@@ -151,9 +153,9 @@ Usage: all OR all <class name> OR <class name>.all()
 '''
 
 - The command do_update is useful to update an instance. If the instance already exist, it updates the instance and the datetime. If the instance doesn't exist, it creates it.
+
 '''sh
 Usage: update <class name> <id> <attribute name> "<attribute value>" 
-
 Usage: <class name>.update(<id>, <attribute name>, <attribute value>)
 '''
 
@@ -162,6 +164,7 @@ Usage: <class name>.update(<id>, <attribute name>, <attribute value>)
 '''sh
 Usage: count <class name> OR <class name>.count()
 '''
+
 - The method default is called when the command is not recognized. If the input line cannot be overrided, an error message is printed and returns.
 
 '''sh
