@@ -189,3 +189,4 @@ And the command in non-interactive mode is :
 '''sh
 echo "python3 -m unittest discover tests" | bash
 '''
+
