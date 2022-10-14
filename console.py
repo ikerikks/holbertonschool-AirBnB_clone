@@ -87,11 +87,12 @@ class HBNBCommand(cmd.Cmd):
             print("** instance id missing **")
         else:
             obj_dictionary = storage.all()
-            if "{}.{}".format(token_str[0], token_str[1]) \
-               not in obj_dictionary.keys():
+            string = f.{token_str[0]}.{token_str[1]}
+            if string not in obj_dictionary.keys():
                 print("** no instance found **")
             else:
-                del obj_dictionary[token_str[0] + "." + token_str[1]]
+                del (obj_dictionary[string])
+                storage.save()
 
     def do_all(self, args):
         """
