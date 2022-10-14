@@ -88,10 +88,10 @@ class HBNBCommand(cmd.Cmd):
         else:
             obj_dictionary = storage.all()
             if "{}.{}".format(token_str[0], token_str[1]) \
-               in obj_dictionary.keys():
-                del obj_dictionary[token_str[0] + "." + token_str[1]]
-            else:
+               not in obj_dictionary.keys():
                 print("** no instance found **")
+            else:
+                del obj_dictionary[token_str[0] + "." + token_str[1]]
 
     def do_all(self, args):
         """
