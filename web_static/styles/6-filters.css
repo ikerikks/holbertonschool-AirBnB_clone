@@ -63,11 +63,14 @@ h4 {
 
 .popover {
     list-style: none;
-    width: 211px;
+    width: 208px;
     background: #FAFAFA;
     padding-top: 20px;
     padding-bottom: 40px;
     opacity: 0;
+    border: solid 1px #DDDDDD;
+    border-top: none;
+    border-radius: 0 0 4px 4px;
     /* transition: opacity 0.5s; */
 }
 
@@ -76,9 +79,18 @@ h4 {
     background-color: #FAFAFA;
     padding-top: 30px;
     padding-left: 25px;
+    border: solid 1px #DDDDDD;
+    border-top: none;
+    border-bottom: none;
     opacity: 0;
     /* transition: opacity 1s; */
 }
+
+.locations + h2 {
+    border-right: solid 1px #DDDDDD;
+}
+
+
 
 .locations ul + h2 {
     margin-top: -55px;
@@ -103,4 +115,5 @@ h4 {
 
 .locations:hover .popover, .locations:hover h2, .amenities:hover .popover {
     opacity: 1;
+    z-index: 5;
 }
